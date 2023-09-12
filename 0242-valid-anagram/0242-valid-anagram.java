@@ -9,6 +9,9 @@ class Solution {
         }
 
         for(int j=0; j<t.length(); j++){
+            if(!myMap.containsKey(t.charAt(j))){
+                return false;
+            }
             myMap.put(t.charAt(j),myMap.getOrDefault(t.charAt(j),0)-1);
         }
 
