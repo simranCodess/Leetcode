@@ -2,16 +2,20 @@
 import java.util.*;
 class Solution {
     public int removeDuplicates(int[] nums) {
-        if(nums.length==0){
+        if (nums.length == 0) {
             return 0;
         }
-        int leftIndex=0;
+        int leftPtr=0;
         for(int i=1; i<nums.length; i++){
-            if(nums[leftIndex]!=nums[i]){
-                leftIndex++;
-                nums[leftIndex]=nums[i];
+            if(nums[leftPtr]==nums[i]){
+                continue;
+            }
+            else{
+                leftPtr++;
+                nums[leftPtr]=nums[i];
             }
         }
-        return leftIndex+1;
+        return leftPtr+1;
     }
+    
 }
