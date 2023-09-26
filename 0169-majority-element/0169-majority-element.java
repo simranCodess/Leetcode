@@ -1,21 +1,25 @@
 import java.util.*;
 class Solution {
     public int majorityElement(int[] nums) {
-        //different algo
-        //keeping track of result and count
-        int res=0;
-        int count=0;
-        for(int n: nums){
-            if(count==0){
-                res=n;
-            }
-            if(n==res){
-                count++;
-            }
-            else{
-                count--;
-            }
-        }
-        return res;
+       if(nums.length==0){
+           return 0;
+       }
+
+       int majorityElement=nums[0];
+       int count=1;
+
+       for(int i=1; i<nums.length; i++){
+           if(nums[i]==majorityElement){
+               count++;
+           }
+           else{
+               count--;
+           }
+           if(count==0){
+               majorityElement=nums[i];
+               count=count+1;
+           }
+       }
+        return majorityElement;
     }
 }
