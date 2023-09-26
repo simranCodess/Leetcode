@@ -1,19 +1,27 @@
+import java.util.*;
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        int [] left= new int[nums.length];
-        left[0]=1;
-        int multiple=1;
-        for(int i=1; i<nums.length; i++){
-            multiple=multiple*nums[i-1];
-            left[i]=multiple;
+        //left multiple
+        int [] leftProduct=new int[nums.length];
+        int currLeft=1;
+        leftProduct[0]=currLeft;
+        for(int i=0; i<nums.length-1; i++){
+            currLeft*=nums[i];
+            leftProduct[i+1]=currLeft;
         }
-        System.out.println(Arrays.toString(left));
-        multiple=1;
-        for(int j=nums.length-2; j>=0; j--){
-            multiple=multiple*nums[j+1];
-            left[j]*=multiple;
+
+        int[] rightProduct=new int[nums.length];
+        int currRight=1;
+        rightProduct[nums.length-1]=currRight;
+        for(int i=nums.length-1; i>0; i--){
+            currRight*=nums[i];
+            rightProduct[i-1]=currRight;
         }
-        System.out.println(Arrays.toString(left));
-        return left;
+
+        
+        for(int i=0; i<nums.length; i++){
+            nums[i]=leftProduct[i]*rightProduct[i];
+        }
+        return nums;
     }
 }
