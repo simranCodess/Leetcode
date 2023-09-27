@@ -1,28 +1,25 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        //merge 2 arrays in an increasing order
-        int firstIndex=m-1;
-        int secondIndex=n-1;
-        int mergedIndex=m+n-1;
-
-        while(firstIndex>=0&&secondIndex>=0){
-            if(nums1[firstIndex]<nums2[secondIndex]){
-                nums1[mergedIndex]=nums2[secondIndex];
-                secondIndex--;
-                mergedIndex--;
+        int i=m-1;
+        int j=n-1;
+        int index=nums1.length-1;
+        while(i>=0&&j>=0){
+            if(nums2[j]>nums1[i]){
+                nums1[index]=nums2[j];
+                j--;
+                index--;
             }
-            else{
-                nums1[mergedIndex]=nums1[firstIndex];
-                nums1[firstIndex]=nums2[secondIndex];
-                firstIndex--;
-                mergedIndex--;
+            else {
+                nums1[index]=nums1[i];
+                i--;
+                index--;
             }
         }
 
-        while(secondIndex>=0){
-            nums1[mergedIndex]=nums2[secondIndex];
-            secondIndex--;
-            mergedIndex--;
+        while(j>=0){
+            nums1[index]=nums2[j];
+            index--;
+            j--;
         }
     }
 }
