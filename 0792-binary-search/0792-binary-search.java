@@ -14,6 +14,6 @@ class Solution {
                 low=middle+1;
             }
         }
-        return -1;
+        return -1; //time colmplexity of O(log n) and space complexity of O(1)
     }
 }
