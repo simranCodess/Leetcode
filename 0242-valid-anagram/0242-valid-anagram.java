@@ -15,7 +15,7 @@ class Solution {
         Arrays.sort(tArray);
         return Arrays.equals(sArray,tArray); //Time Complexity: O(n log n) Space Complexity: O(n)*/
 
-        //optimal approach: HashMap
+        /*optimal approach: HashMap 
         HashMap<Character,Integer> myMap=new HashMap<>();
         for(int i=0; i<s.length(); i++){
             myMap.put(s.charAt(i),myMap.getOrDefault(s.charAt(i),0)+1);
@@ -28,7 +28,20 @@ class Solution {
                 return false;
             }
         }
-        return true; //time complexity of O(n) and space complexity of O(c+d) where c is number of unique chars in s and d is number of unique chars in t
+        return true; //time complexity of O(n) and space complexity of O(c+d) where c is number of unique chars in s and d is number of unique chars in t*/
+
+        //another clever optimal solution: storing the frequency of character in s and t in a 26 length array, where each index represents the letter from a to z
+        int[] seq=new int[26];
+        for(int i=0; i<s.length(); i++){
+            seq[s.charAt(i)-'a']++;
+             seq[t.charAt(i)-'a']--;
+        }
+        for(int i:seq){
+            if(i!=0){
+                return false;
+            }
+        }
+        return true;
 
     }
 }
