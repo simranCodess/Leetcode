@@ -1,25 +1,18 @@
-
 import java.util.*;
 class Solution {
     public boolean isAnagram(String s, String t) {
-        HashMap<Character,Integer> myMap=new HashMap<>();
-
-        for(int i=0; i<s.length(); i++){
-            myMap.put(s.charAt(i),myMap.getOrDefault(s.charAt(i),0)+1);
+        //edge case
+        if(s.length()==0&&t.length()==0){
+            return true;
         }
-
-        for(int j=0; j<t.length(); j++){
-            if(!myMap.containsKey(t.charAt(j))){
-                return false;
-            }
-            myMap.put(t.charAt(j),myMap.getOrDefault(t.charAt(j),0)-1);
+        if(s.length()!=t.length()){
+            return false;
         }
-
-        for(int n:myMap.values()){
-            if(n!=0){
-                return false;
-            }
-        }
-        return true;
+        //Brute force approach
+        char [] sArray=s.toCharArray();
+        char [] tArray=t.toCharArray();
+        Arrays.sort(sArray);
+        Arrays.sort(tArray);
+        return Arrays.equals(sArray,tArray);
     }
 }
