@@ -41,7 +41,7 @@ class Solution {
                 return false;
             }
         }
-        return true;
+        return true;  //time complexity of O(n) and space complexity of O(1)
 
     }
 }
