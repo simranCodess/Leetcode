@@ -27,6 +27,6 @@ class Solution {
             }
             map.put(nums[i],i);
         }
-        return result;
+        return result; //time complexity of O(N) and space complexity of O(n)
     }
 }
