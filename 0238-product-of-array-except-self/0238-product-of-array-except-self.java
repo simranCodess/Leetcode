@@ -40,9 +40,6 @@ class Solution {
             rightProduct[i]=right;
         }
 
-        System.out.println(Arrays.toString(rightProduct));
-                System.out.println(Arrays.toString(leftProduct));
-
         for(int i=0; i<nums.length; i++){
             answer[i]=leftProduct[i]*rightProduct[i];
         }
