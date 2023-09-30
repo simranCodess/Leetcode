@@ -8,7 +8,9 @@ class Solution {
          int answer=1;
         int currSeq=1;
          for(int i=1; i<nums.length; i++){
-             if(nums[i]!=nums[i-1]){
+                 if(nums[i-1]==nums[i]){
+                     continue;
+                 }
                 
                  if(nums[i-1]+1==nums[i]){
                      currSeq++;
@@ -17,7 +19,7 @@ class Solution {
                      currSeq=1;
                  }
                  answer=Math.max(currSeq,answer);
-             }
+             
          }
          
          return answer; 
