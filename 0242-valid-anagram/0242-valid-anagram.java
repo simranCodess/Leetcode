@@ -28,7 +28,7 @@ class Solution {
                 return false;
             }
         }
-        return true;
+        return true; //time complexity of O(n) and space complexity of O(c+d) where c is number of unique chars in s and d is number of unique chars in t
 
     }
 }
