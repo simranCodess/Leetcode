@@ -52,27 +52,8 @@ class Solution {
         for(List<String> value: map.values()){
             result.add(value);
         }
-        return result;
+        return result;  //time complexity of O(n*m*log(m)) n=length of strs, m is the max length of string and m*log(m) 
+        //because we are sorting each string. Space complexity will be O(n*m)  
 
-    }
-
-    public boolean isAnagram(String s, String t){
-         if(s.length()==0&&t.length()==0){
-            return true;
-        }
-        if(s.length()!=t.length()){
-            return false;
-        }
-        int[] seq=new int[26];
-        for(int i=0; i<s.length(); i++){
-            seq[s.charAt(i)-'a']++;
-             seq[t.charAt(i)-'a']--;
-        }
-        for(int i:seq){
-            if(i!=0){
-                return false;
-            }
-        }
-        return true;  //time complexity of O(n) and space complexity of O(1)
     }
 }
