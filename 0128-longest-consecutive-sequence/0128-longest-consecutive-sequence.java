@@ -3,7 +3,7 @@ class Solution {
         if(nums.length==0){
             return 0;
         }
-        //brute force approach
+        
          Arrays.sort(nums);
          int answer=1;
         int currSeq=1;
@@ -20,6 +20,6 @@ class Solution {
              }
          }
          
-         return answer;
+         return answer; 
     }
 }
