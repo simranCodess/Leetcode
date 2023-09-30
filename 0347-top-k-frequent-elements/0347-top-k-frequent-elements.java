@@ -21,16 +21,19 @@ class Solution {
              bucket[value].add(key);
         }
         int index=0;
-       for(int i=bucket.length-1; i>=0 &&index<k; i--){
+       for(int i=bucket.length-1; i>=0 ; i--){
           if(bucket[i]!=null){
               List<Integer> curr=bucket[i];
               for(int j=0; j<curr.size(); j++){
                   answer[index++]=curr.get(j);
-                  if(index==k){
+                  if(k==index){
                       break;
                   }
-              }
+             }
           }
+           if (index == k) {
+        break;
+    }
        }
 
 
