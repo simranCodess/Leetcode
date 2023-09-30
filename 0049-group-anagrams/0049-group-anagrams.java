@@ -7,7 +7,7 @@ class Solution {
             return result;
         }
 
-        //brute force method
+        /*brute force method
         for(int i=0; i<strs.length; i++){
             String curr=strs[i];
             List<String> currentList=new ArrayList<>();
@@ -26,7 +26,34 @@ class Solution {
             result.add(currentList);
             }
         }
-        return result; //time complexity of O(n*m^2) where n is length of strs and m is length of strings space complexity: O(1)
+        return result; //time complexity of O(n*m^2) where n is length of strs and m is length of strings space complexity: O(1)*/
+
+
+        // a optimal approch : use hashmap and store sorted anagram as key and a list of anagrams as values
+
+        HashMap<String,List<String>> map=new HashMap<>();
+
+        for(String s : strs){
+            char [] curr=s.toCharArray();
+            Arrays.sort(curr);
+            String sorted=new String(curr);
+            if(map.containsKey(sorted)){
+                List<String> current=map.get(sorted);
+                current.add(s);
+                map.put(sorted,current);
+            }
+            else{
+                List<String> newList=new ArrayList<>();
+                newList.add(s);
+                map.put(sorted,newList);
+            }
+        }
+
+        for(List<String> value: map.values()){
+            result.add(value);
+        }
+        return result;
+
     }
 
     public boolean isAnagram(String s, String t){
