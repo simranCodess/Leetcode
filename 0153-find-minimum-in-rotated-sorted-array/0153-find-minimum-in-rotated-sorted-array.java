@@ -8,7 +8,8 @@ class Solution {
         while(left<=right){
             int mid=(left+right)/2;
             
-            if(nums[mid]>nums[right]){
+            if(nums[left]<=nums[mid]){
+                answer=Math.min(answer,nums[left]);
                 left=mid+1;
             }
             else{
