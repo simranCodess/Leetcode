@@ -1,5 +1,14 @@
 class Solution {
     public int countAsterisks(String s) {
+        //s=0
+        if(s.length()==0){
+            return 0;
+        }
+        if(!s.contains("*")){
+            return 0;
+        }
+
+
         int barCount=0;
         int astrickCount=0;
 
