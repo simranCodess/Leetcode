@@ -9,11 +9,7 @@ class Solution {
 
             //case 1 : no dots in local name
             String localWithoutDots="";
-            for(int i=0; i<local.length(); i++){
-                if(local.charAt(i)!='.'){
-                    localWithoutDots+=local.charAt(i);
-                }
-            }
+         localWithoutDots = local.replaceAll("\\.", "");
             if (localWithoutDots.contains("+")) {
             String[] localParts = localWithoutDots.split("\\+");
             localWithoutDots = localParts[0];
